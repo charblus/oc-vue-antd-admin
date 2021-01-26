@@ -162,18 +162,94 @@ const options = {
           children: [
             {
               path: 'search',
-              name: '配置',
+              name: '系统配置',
               component: PageView,
               // component: () => import('@/pages/list/search/SearchLayout'),
               children: [
                 {
-                  path: 'article',
+                  path: 'cidian',
                   name: '词典',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                },
+                {
+                  path: 'article',
+                  name: '决策树2.0',
                   component: () => import('@/pages/list/search/ArticleList'),
                 }
               ]
             },
-
+            {
+              path: 'yewu',
+              name: '业务配置',
+              component: PageView,
+              // component: () => import('@/pages/list/search/SearchLayout'),
+              children: [
+                {
+                  path: 'sms',
+                  name: '短信配置',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                }
+              ]
+            },
+            {
+              path: 'sysjian',
+              name: '系统监控',
+              component: PageView,
+              // component: () => import('@/pages/list/search/SearchLayout'),
+              children: [
+                {
+                  path: 'pi',
+                  name: '批处理进度',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                },
+                {
+                  path: 'shou',
+                  name: '手工批处理',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                },
+                {
+                  path: 'jicheng',
+                  name: '集成文件统计',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                }
+              ]
+            },
+            {
+              path: 'shuju',
+              name: '数据权限',
+              component: PageView,
+              // component: () => import('@/pages/list/search/SearchLayout'),
+              children: [
+                {
+                  path: 'role',
+                  name: '角色',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                }
+              ]
+            },
+            {
+              path: 'yonghu',
+              name: '用户',
+              component: PageView,
+              // component: () => import('@/pages/list/search/SearchLayout'),
+              children: [
+                {
+                  path: 'yonghu2',
+                  name: '用户',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                },
+                {
+                  path: 'loginlog',
+                  name: '用户登陆日志',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                },
+                {
+                  path: 'oper',
+                  name: '用户操作日志',
+                  component: () => import('@/pages/list/search/ArticleList'),
+                }
+              ]
+            },
           ]
         },
         {
