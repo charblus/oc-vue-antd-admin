@@ -19,7 +19,8 @@ export default {
     activatedFirst: undefined,
     customTitles,
     ...config,
-    ...localSetting
+    ...localSetting,
+    layout: 'mix'
   },
   getters: {
     menuData(state, getters, rootState) {
