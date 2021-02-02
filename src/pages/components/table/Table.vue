@@ -116,6 +116,7 @@
       getGoodList() {
         this.loading = true
         const {page, pageSize, conditions} = this
+        console.log('222', JSON.stringify(conditions))
         ds.goodsList({page, pageSize, ...conditions}).then(result => {
           const {list, page, pageSize, total} = result.data.data
           this.dataSource = list

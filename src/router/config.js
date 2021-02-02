@@ -24,6 +24,9 @@ const options = {
       path: '/',
       name: '首页',
       component: TabsView,
+      meta: {
+        invisible: true
+      },
       redirect: '/login',
       children: [
         {
@@ -60,7 +63,7 @@ const options = {
           component: BlankView,
           children: [
             {
-              path: 'search',
+              path: 'customer',
               name: '客户',
               meta: {
                 authority: 'queryForm',
@@ -68,9 +71,12 @@ const options = {
               component: PageView,
               children: [
                 {
-                  path: 'article',
+                  path: 'list',
                   name: '总客户列表',
-                  component: () => import('@/pages/list/search/ArticleList'),
+                  meta: {
+                    authority: 'queryForm',
+                  },
+                  component: () => import('@/pages/list/UserUnit'),
                 },
                 {
                   path: 'table',
@@ -174,7 +180,7 @@ const options = {
                 {
                   path: 'article',
                   name: '决策树2.0',
-                  component: () => import('@/pages/list/search/ArticleList'),
+                  component: () => import('@/pages/juece/Juece'),
                 }
               ]
             },

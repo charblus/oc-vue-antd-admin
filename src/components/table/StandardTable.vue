@@ -1,7 +1,7 @@
 <template>
   <div class="standard-table">
     <div class="alert">
-      <a-alert type="info" :show-icon="true" v-if="selectedRows">
+      <a-alert type="info" :show-icon="true" v-if="selectedRows&&type=='checkbox'">
         <div class="message" slot="message">
           已选择&nbsp;<a>{{selectedRows.length}}</a>&nbsp;项 <a class="clear" @click="onClear">清空</a>
           <template  v-for="(item, index) in needTotalList" >
@@ -23,7 +23,7 @@
       :expandedRowKeys="expandedRowKeys"
       :expandedRowRender="expandedRowRender"
       @change="onChange"
-      :rowSelection="selectedRows ? {selectedRowKeys: selectedRowKeys, onChange: updateSelect} : undefined"
+      :rowSelection="selectedRows ? {selectedRowKeys: selectedRowKeys, onChange: updateSelect, type: type} : undefined"
     >
       <template slot-scope="text, record, index" :slot="slot" v-for="slot in Object.keys($scopedSlots).filter(key => key !== 'expandedRowRender') ">
         <slot :name="slot" v-bind="{text, record, index}"></slot>
@@ -56,6 +56,10 @@ export default {
     },
     selectedRows: Array,
     expandedRowKeys: Array,
+    type: {
+      type: String,
+      default: 'checkbox'
+    },
     expandedRowRender: Function
   },
   data () {
